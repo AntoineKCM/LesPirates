@@ -1,5 +1,5 @@
 package cases;
 
-public class CaseNormal {
+public class CaseNormal extends Case {
 
 }

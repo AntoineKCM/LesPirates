@@ -5,14 +5,14 @@ import jeu.Joueur;
 public abstract class Case {
 	private int numeroCase ;
 	
-
-public int getNumeroCase() {
-    return numeroCase;
-}
-
-
+	public Case(int numeroCase)	{
+		this.numeroCase = numeroCase;
+	}
+	
 protected void declencherAction(Joueur joueur1, Joueur joueur2) {
-
+	public int getNumeroCase() {
+	    return numeroCase;
+	}
 
 
 

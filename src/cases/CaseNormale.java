@@ -10,7 +10,6 @@ public class CaseNormale extends Case {
 	
 	@Override
 	public void declencherAction(Joueur joueurQuijoue, Joueur joueurContre) {
-		System.out.println("AMERISSAGE TRANQUILLE,case normale ,repose toi"); 
 	}
 
 }

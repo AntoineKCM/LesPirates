@@ -19,7 +19,6 @@ public class CaseRouletteRusse extends Case {
 	}
 	@Override
 	public void declencherAction(Joueur joueurQuijoue, Joueur joueurContre) {
-		System.out.println(" AMERIISAGE CASE ROULETTE RUSSE,que la chance soit avec toi ...");
 		joueurQuijoue.setPositionPlateau(random.nextInt(30));
 	}
 

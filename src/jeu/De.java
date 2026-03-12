@@ -14,11 +14,7 @@ public class De {
         int resultatde2 = random.nextInt(6) + 1;
         int resultat = resultatde1 + resultatde2;
 
-        affichage.afficherResultatDe(
-            "Résultat du lancé : dé 1 : " + resultatde1 +
-            "   dé 2 : " + resultatde2 +
-            "   TOTAL : " + resultat
-        );
+        affichage.afficherResultatDes(resultat);
 
         return resultat;
     }

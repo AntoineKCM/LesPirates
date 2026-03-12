@@ -14,7 +14,13 @@ public Plateau(Integer[] positionCaseRouletteRusse, Integer[] positionCaseVolVie
 	this.posistionCaseRouletteRusse = positionCaseRouletteRusse;
 	this.positionCaseVolVie = positionCaseVolVie;
 }
+public Integer[] getPositionCaseRouletteRusse() {
+    return posistionCaseRouletteRusse;
+}
 
+public Integer[] getPositionCaseVolVie() {
+    return positionCaseVolVie;
+}
 public int getNbCases() {
 	return nbCases;
 }

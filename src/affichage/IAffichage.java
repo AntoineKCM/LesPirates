@@ -14,7 +14,7 @@ public interface IAffichage {
     public void afficherTourJoueur(Joueur joueur);
     
 
-    public void afficherCase(String message) ;
+    public void afficherCaseRouletteRusse(int caseRouletteRusse, String nom) ;
 
 
     public void afficherFinPartie(String message);

@@ -15,12 +15,12 @@ public class Affichage implements IAffichage {
 
     @Override
     public void afficherTourJoueur(Joueur joueur) {
-        System.out.println(joueur.getNom()+"  à toi de jouer ! " ) ;
+        System.out.println(joueur.getNom()+" \n case " +joueur.getPositionPlateau()+" \n " + joueur.getVie() + " points de vie, "+" \n " +"à toi de jouer ! " ) ;
     }
 
     @Override
-    public void afficherCase(String message) {
-        System.out.println(message);
+    public void afficherCaseRouletteRusse(int caseRouletteRusse,String nom) {
+        System.out.println("le hasard a frappé et "+nom+" débarque à la case "+caseRouletteRusse);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class Affichage implements IAffichage {
     }
     @Override
     public void afficherResultatDes(int resultatDes) {
-        System.out.println("Résultat du lancé : "+ resultatDes);
+        System.out.println(" Résultat du lancé : "+ resultatDes);
     }
     @Override
     public void afficherTour(int numTour, Joueur joueur) {

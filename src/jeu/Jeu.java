@@ -4,6 +4,9 @@ import cases.CaseNormale;
 import cases.CaseRouletteRusse;
 import cases.CaseVolVie;
 import jeu.Plateau;
+
+import java.util.Scanner;
+
 import affichage.Affichage;
 public class Jeu {
 	private int nbJoueurs = 2 ;
@@ -31,19 +34,18 @@ public class Jeu {
 	    }
 
 	public void lancerJeu(Plateau plateau) {
+		Scanner clavier = new Scanner(System.in);
 		Affichage affichage = new Affichage();
 		initialiserCases(plateau);
 	    De de = new De();
 
-	    int nbTour = 0;
+	    int nbTour = 1;
 	    boolean finPartie = false;
 
-	    while (!finPartie) {
+	    do {
 	    	affichage.afficherTour(nbTour);
 
-	        Joueur joueurQuiJoue = joueurs[nbTour % nbJoueurs];
-
-
+	        Joueur joueurQuiJoue = joueurs[nbTour % nbJoueurs];  
 	        Joueur joueurContre = joueurs[(nbTour + 1) % nbJoueurs];
 
 	        affichage.afficherTourJoueur(joueurQuiJoue.getNom(), joueurQuiJoue.getCouleurPion(),joueurQuiJoue.getPositionPlateau(), joueurQuiJoue.getVie());
@@ -59,9 +61,10 @@ public class Jeu {
 
 	        finPartie = verifierFinPartie(plateau,joueurQuiJoue,joueurContre);
 
-	        nbTour++;
-	    }
-
+	        nbTour = attendreEntree(clavier,finPartie,nbTour);
+	        
+	    } while (!finPartie);
+	    clavier.close();
 	}
 
 public void deplacerJoueur(Joueur joueur, int resultatDes, Plateau plateau, Affichage affichage) {
@@ -93,6 +96,15 @@ public void initialiserCases(Plateau plateau) {
     for (Integer pos : plateau.getPositionCaseVolVie()) {
         cases[pos - 1] = new CaseVolVie(pos);
     }
+}
+private int attendreEntree(Scanner claviers,boolean finPartiee, int numTour) {
+	Affichage affichage = new Affichage();
+	 if (!finPartiee) {
+	        affichage.afficherFinTour(numTour);
+	        claviers.nextLine();
+	        numTour++ ;
+     	}
+	 return numTour;
 }
 }
 

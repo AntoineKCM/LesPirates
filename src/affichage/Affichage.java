@@ -41,11 +41,15 @@ public class Affichage implements IAffichage {
     
     @Override
     public void afficherTour(int numTour) {
-    	
-    	numTour++ ;
+ 
         System.out.println("\n ===== Tour " + numTour + " =====");
     }
     
+    @Override
+    public void afficherFinTour(int numTour) {
+
+        System.out.println("appuyer sur Entrée pour Le tour "+ numTour);
+    }    
 
     @Override
     public void afficherFinPartie( String nomGagnant) {

@@ -19,6 +19,7 @@ public interface IAffichage {
 
     public void afficherTour(int numTour);
     
-
+    public void afficherFinTour(int numTour);
+    
     public void afficherFinPartie(String nomGagnant);
     }

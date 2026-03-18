@@ -1,6 +1,5 @@
 package jeu;
 
-import affichage.Affichage;
 
 public class TestJeu {
 

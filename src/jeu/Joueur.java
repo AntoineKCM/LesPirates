@@ -36,8 +36,8 @@ public class Joueur {
         return nom;
     }
 
-    public Couleur getCouleurPion() {
-        return couleurPion;
+    public String getCouleurPion() {
+        return couleurPion.getTypeCouleur();
     }
 
     public void setPositionPlateau(int newPositionPlateau) {

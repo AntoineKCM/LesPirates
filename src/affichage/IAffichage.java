@@ -1,37 +1,24 @@
 package affichage;
 
-import cases.Case;
-import cases.CaseNormale;
-import cases.CaseRouletteRusse;
-import cases.CaseVolVie;
-import jeu.Joueur;
-
 public interface IAffichage {
 
-	public void afficherJeu(String message) ;
 
+    public void afficherTourJoueur(String nom, String couleurPion, int position, int vie);
     
-    public void afficherTourJoueur(Joueur joueur);
+    public void afficherCaseNormale(int caseNormale,String nom) ;
     
-
     public void afficherCaseRouletteRusse(int caseRouletteRusse, String nom) ;
+    
+    public void afficherCaseVolVie(int vie, String nom1, String nom2) ;
 
 
-    public void afficherFinPartie(String message);
+    public void afficherDeplacement(String nom, int resultat, int position);
 
-    public void afficherNom(Joueur joueur) ;
-
-    public void afficherDeplacement(Joueur joueur, int resultat) ;
-
-    public void afficherVie(Joueur joueur);
-
-    public void afficherCase(Case c);
 
     public void afficherResultatDes(int resultatDes) ;
 
-    public void afficherTour(int numTour, Joueur joueur) ;
+    public void afficherTour(int numTour);
     
-    public void afficherActionCase(Case c, Joueur joueurQuiJoue, Joueur joueurContre) ;
 
-    public void afficherFinPartie(Joueur gagnant);
+    public void afficherFinPartie(String nomGagnant);
     }

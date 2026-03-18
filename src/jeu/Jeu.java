@@ -14,21 +14,21 @@ public class Jeu {
 	    return joueurs;
 	}
 
-	public boolean verifierFinPartie(Plateau plateau) {
+	public boolean verifierFinPartie(Plateau plateau,Joueur joueurQuiJoue, Joueur joueurContre) {
+		Affichage affichage = new Affichage();
 
-	    for (Joueur j : joueurs) {
 
-	        if (j.getPositionPlateau() == plateau.getNbCases()) {
+	        if (joueurQuiJoue.getPositionPlateau() == plateau.getNbCases()) {
+	        	affichage.afficherFinPartie(joueurQuiJoue.getNom());
 	            return true;
 	        }
 
-	        if (!j.estVivant()) {
+	        if (!joueurContre.estVivant()) {
+	        	affichage.afficherFinPartie(joueurQuiJoue.getNom());
 	            return true;
 	        }
+	        return false;
 	    }
-
-	    return false;
-	}
 
 	public void lancerJeu(Plateau plateau) {
 		Affichage affichage = new Affichage();
@@ -39,14 +39,14 @@ public class Jeu {
 	    boolean finPartie = false;
 
 	    while (!finPartie) {
-
+	    	affichage.afficherTour(nbTour);
 
 	        Joueur joueurQuiJoue = joueurs[nbTour % nbJoueurs];
 
 
 	        Joueur joueurContre = joueurs[(nbTour + 1) % nbJoueurs];
 
-	        affichage.afficherTourJoueur(joueurQuiJoue);
+	        affichage.afficherTourJoueur(joueurQuiJoue.getNom(), joueurQuiJoue.getCouleurPion(),joueurQuiJoue.getPositionPlateau(), joueurQuiJoue.getVie());
 
 	        int resultatDes = de.lancerDes();
 
@@ -54,16 +54,14 @@ public class Jeu {
 
 
 	        Case caseTombee = cases[joueurQuiJoue.getPositionPlateau() - 1];
-	        affichage.afficherActionCase(caseTombee,joueurQuiJoue,joueurContre);
 
 	        caseTombee.declencherAction(joueurQuiJoue, joueurContre);
 
-	        finPartie = verifierFinPartie(plateau);
+	        finPartie = verifierFinPartie(plateau,joueurQuiJoue,joueurContre);
 
 	        nbTour++;
 	    }
 
-	    System.out.println("La partie est terminée !");
 	}
 
 public void deplacerJoueur(Joueur joueur, int resultatDes, Plateau plateau, Affichage affichage) {
@@ -79,7 +77,7 @@ public void deplacerJoueur(Joueur joueur, int resultatDes, Plateau plateau, Affi
     }
 
     joueur.setPositionPlateau(nouvellePosition);
-    affichage.afficherDeplacement(joueur,resultatDes);
+    affichage.afficherDeplacement(joueur.getNom(), resultatDes, joueur.getPositionPlateau());
 	}
 public void initialiserCases(Plateau plateau) {
 

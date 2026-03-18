@@ -10,6 +10,7 @@ public class De {
     private Random random = new SecureRandom();
 
     public int lancerDes() {
+    	
         int resultatde1 = random.nextInt(6) + 1;
         int resultatde2 = random.nextInt(6) + 1;
         int resultat = resultatde1 + resultatde2;

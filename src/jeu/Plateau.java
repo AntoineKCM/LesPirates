@@ -1,38 +1,26 @@
-	package jeu;
-	
-	import cases.CaseNormale;
-	
-	
+package jeu;
+
 public class Plateau {
-	
-	private int nbCases = 30 ;
-	private Integer[] posistionCaseRouletteRusse;
-	private Integer[] positionCaseVolVie;
-	private CaseNormale caseArrivée = new CaseNormale(nbCases);
 
+    private static final int NB_CASES = 30;
 
-public Plateau(Integer[] positionCaseRouletteRusse, Integer[] positionCaseVolVie) {
-	
-	this.posistionCaseRouletteRusse = positionCaseRouletteRusse;
-	this.positionCaseVolVie = positionCaseVolVie;
-}
+    private Integer[] positionCaseRouletteRusse;
+    private Integer[] positionCaseVolVie;
 
-public Integer[] getPositionCaseRouletteRusse() {
-	
-    return posistionCaseRouletteRusse;
-}
+    public Plateau(Integer[] positionCaseRouletteRusse, Integer[] positionCaseVolVie) {
+        this.positionCaseRouletteRusse = positionCaseRouletteRusse;
+        this.positionCaseVolVie = positionCaseVolVie;
+    }
 
-public Integer[] getPositionCaseVolVie() {
-	
-    return positionCaseVolVie;
-}
+    public Integer[] getPositionCaseRouletteRusse() {
+        return positionCaseRouletteRusse;
+    }
 
-public int getNbCases() {
-	
-	return nbCases;
-}
+    public Integer[] getPositionCaseVolVie() {
+        return positionCaseVolVie;
+    }
 
-public CaseNormale getCaseFin() {
-	return caseArrivée;
-	}
+    public int getNbCases() {
+        return NB_CASES;
+    }
 }

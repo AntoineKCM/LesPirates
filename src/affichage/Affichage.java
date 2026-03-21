@@ -1,6 +1,10 @@
 package affichage;
 
-public class Affichage implements IAffichage {
+import java.util.Scanner;
+
+public class Affichage implements IAffichage { 	
+	
+	private Scanner clavier = new Scanner(System.in);
 
     @Override
     public void afficherTourJoueur(String nom, String couleurPion, int position, int vie) {
@@ -17,20 +21,20 @@ public class Affichage implements IAffichage {
     @Override
     public void afficherCaseRouletteRusse(int caseRouletteRusse,String nom) {
     	
-        System.out.println(nom + " tombe sur une case Roulette-Russe,le hasard a frappé et il  débarque à la case "+caseRouletteRusse);
+        System.out.println(nom + " tombe sur une case Roulette-Russe,\nle hasard a frappé et il  débarque à la case "+caseRouletteRusse+ " ! ");
     }
     
     @Override
     public void afficherCaseVolVie(int vie, String nom1, String nom2) {
     	
-        System.out.println(nom1 + " tombe sur une case Vol-Vie et vole 1 point de  vie à " 
-                +nom2+" ce dernier ne possède plus que  "+vie+" point de vie ");
+        System.out.println(nom1 + " tombe sur une case Vol-Vie et vole 1 point de vie à " 
+                +nom2+"\nCe dernier ne possède plus que "+vie+" point de vie, DANGER ! ");
     }
 
     @Override
     public void afficherDeplacement(String nom, int resultat, int position) {
     	
-        System.out.println(nom + " avance de " + resultat + " cases et se retrouve à la case " + position);
+        System.out.println(nom + " avance de " + resultat + " cases et se retrouve à la case " + position + " .");
     }
 
     @Override
@@ -40,15 +44,15 @@ public class Affichage implements IAffichage {
     }
     
     @Override
-    public void afficherTour(int numTour) {
+    public void afficherTour(int nbTour) {
  
-        System.out.println("\n ===== Tour " + numTour + " =====");
+        System.out.println("\n ======== Tour " + nbTour + " ========");
     }
     
     @Override
-    public void afficherFinTour(int numTour) {
+    public void afficherFinTour(int nbTour) {
 
-        System.out.println("appuyer sur Entrée pour Le tour "+ numTour);
+        System.out.println("appuyer sur Entrée pour Le tour "+ nbTour);
     }    
 
     @Override
@@ -56,4 +60,13 @@ public class Affichage implements IAffichage {
     	
             System.out.println("La partie est terminée ! Le gagnant est : " + nomGagnant);
         } 
+	
+	@Override
+	public void passerTour(String nomJoueur, int nbTour,boolean finPartie) {
+		if (!finPartie) {
+			System.out.println("\n Appuies sur Entrée pour commencer  le tour " + nbTour + " !");
+			clavier.nextLine();
+	    }
+
+	}
     }

@@ -14,5 +14,5 @@ public abstract class Case {
         return numeroCase;
     }
 
-    public abstract void declencherAction(Joueur joueur1, Joueur joueur2);
+    public abstract void declencherAction(Joueur joueurQuiJoue, Joueur joueurContre);
 }

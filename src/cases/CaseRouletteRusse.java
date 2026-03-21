@@ -1,22 +1,20 @@
 package cases;
 
-import affichage.Affichage;
-
+import affichage.IAffichage;
 import java.security.SecureRandom;
-
 import java.util.Random;
-
 import jeu.Joueur;
 
 public class CaseRouletteRusse extends Case {
 	
 	private Random random;
-    private Affichage affichage = new Affichage();
+    private IAffichage affichage;
     
     
-	public CaseRouletteRusse(int numeroCase) {
+	public CaseRouletteRusse(int numeroCase,IAffichage affichage) {
 		
 		super(numeroCase);
+		this.affichage = affichage;
 		try {
 			random = SecureRandom.getInstanceStrong();
 		} catch (Exception e) {
@@ -26,10 +24,10 @@ public class CaseRouletteRusse extends Case {
 	}
 
 	@Override
-	public void declencherAction(Joueur joueurQuijoue, Joueur joueurContre) {
+	public void declencherAction(Joueur joueurQuiJoue, Joueur joueurContre) {
 		
-		joueurQuijoue.setPositionPlateau(random.nextInt(30));
-		affichage.afficherCaseRouletteRusse(joueurQuijoue.getPositionPlateau(),joueurQuijoue.getNom());
+		joueurQuiJoue.setPositionPlateau(random.nextInt(30));
+		affichage.afficherCaseRouletteRusse(joueurQuiJoue.getPositionPlateau(),joueurQuiJoue.getNom());
 		
 	}
 

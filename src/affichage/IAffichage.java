@@ -17,9 +17,11 @@ public interface IAffichage {
 
     public void afficherResultatDes(int resultatDes) ;
 
-    public void afficherTour(int numTour);
+    public void afficherTour(int nubTour);
     
-    public void afficherFinTour(int numTour);
+    public void afficherFinTour(int nbTour);
     
     public void afficherFinPartie(String nomGagnant);
+    
+	public void passerTour(String nomJoueur, int nbTour,boolean finPartie);
     }

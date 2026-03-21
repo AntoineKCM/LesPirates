@@ -1,15 +1,15 @@
 package cases;
 
-import affichage.Affichage;
-
+import affichage.IAffichage;
 import jeu.Joueur;
 
 public class CaseVolVie extends Case {
 	
-    private Affichage affichage = new Affichage();
+    private IAffichage affichage;
     
-	public CaseVolVie(int numeroCase) {
+	public CaseVolVie(int numeroCase,IAffichage affichage) {
 		super(numeroCase);
+        this.affichage = affichage;
 	}
 
 	@Override

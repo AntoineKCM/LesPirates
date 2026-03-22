@@ -85,10 +85,10 @@ public class Jeu {
 
     private void deplacerJoueur(Joueur joueur, int resultatDes) {
         int nouvellePosition = joueur.getPositionPlateau() + resultatDes;
-        int dernierCase = plateau.getNbCases();
+        int derniereCase = plateau.getNbCases();
 
-        if (nouvellePosition > dernierCase) {
-            nouvellePosition = dernierCase - (nouvellePosition - dernierCase);
+        if (nouvellePosition > derniereCase) {
+            nouvellePosition = derniereCase - (nouvellePosition - derniereCase);
         }
 
         joueur.setPositionPlateau(nouvellePosition);

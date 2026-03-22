@@ -54,8 +54,7 @@ public class Jeu {
             Joueur joueurContre = joueurs[(nbTour + 1) % NB_JOUEURS];
 
             affichage.afficherTourJoueur(joueurQuiJoue.getNom(),joueurQuiJoue.getCouleurPion(),
-                joueurQuiJoue.getPositionPlateau(),joueurQuiJoue.getVie()
-            );
+                joueurQuiJoue.getPositionPlateau(),joueurQuiJoue.getVie());
 
             int resultatDes = de.lancerDes();
             deplacerJoueur(joueurQuiJoue, resultatDes);

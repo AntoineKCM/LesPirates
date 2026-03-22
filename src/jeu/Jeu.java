@@ -31,14 +31,14 @@ public class Jeu {
     }
 
     private void initialiserJeu() {
-        joueur1 = new Joueur("Pessi", Couleur.ROUGE);
-        joueur2 = new Joueur("Penaldo", Couleur.BLEU);
+        joueur1 = new Joueur("Jack", Couleur.ROUGE);
+        joueur2 = new Joueur("Barbe Noire", Couleur.BLEU);
         joueurs = new Joueur[]{joueur1, joueur2};
 
-        Integer[] posCaseRouletteRusse = {5, 10, 20, 25, 27};
-        Integer[] posCaseVolVie = {3, 9, 18, 21, 29};
+        Integer[] positionCaseRouletteRusse = {5, 10, 20, 25, 27};
+        Integer[] positionCaseVolVie = {3, 9, 18, 21, 29};
 
-        plateau = new Plateau(posCaseRouletteRusse, posCaseVolVie);
+        plateau = new Plateau(positionCaseRouletteRusse, positionCaseVolVie);
         initialiserCases();
     }
 
@@ -53,11 +53,8 @@ public class Jeu {
             Joueur joueurQuiJoue = joueurs[nbTour % NB_JOUEURS];
             Joueur joueurContre = joueurs[(nbTour + 1) % NB_JOUEURS];
 
-            affichage.afficherTourJoueur(
-                joueurQuiJoue.getNom(),
-                joueurQuiJoue.getCouleurPion(),
-                joueurQuiJoue.getPositionPlateau(),
-                joueurQuiJoue.getVie()
+            affichage.afficherTourJoueur(joueurQuiJoue.getNom(),joueurQuiJoue.getCouleurPion(),
+                joueurQuiJoue.getPositionPlateau(),joueurQuiJoue.getVie()
             );
 
             int resultatDes = de.lancerDes();
@@ -67,7 +64,7 @@ public class Jeu {
 
             nbTour++;
             finPartie = verifierFinPartie(joueurQuiJoue, joueurContre);
-            affichage.passerTour(joueurQuiJoue.getNom(), nbTour, finPartie);
+            affichage.passerTour(nbTour, finPartie);
 
         } while (!finPartie);
 
@@ -102,11 +99,11 @@ public class Jeu {
         for (int i = 0; i < NB_CASES; i++) {
             cases[i] = new CaseNormale(i + 1);
         }
-        for (Integer pos : plateau.getPositionCaseRouletteRusse()) {
-            cases[pos - 1] = new CaseRouletteRusse(pos, affichage);
+        for (Integer position : plateau.getPositionCaseRouletteRusse()) {
+            cases[position - 1] = new CaseRouletteRusse(position, affichage);
         }
-        for (Integer pos : plateau.getPositionCaseVolVie()) {
-            cases[pos - 1] = new CaseVolVie(pos, affichage);
+        for (Integer position : plateau.getPositionCaseVolVie()) {
+            cases[position - 1] = new CaseVolVie(position, affichage);
         }
     }
 }

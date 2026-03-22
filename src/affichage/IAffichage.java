@@ -11,17 +11,14 @@ public interface IAffichage {
     
     public void afficherCaseVolVie(int vie, String nom1, String nom2) ;
 
-
     public void afficherDeplacement(String nom, int resultat, int position);
-
 
     public void afficherResultatDes(int resultatDes) ;
 
-    public void afficherTour(int nubTour);
-    
-    public void afficherFinTour(int nbTour);
+    public void afficherTour(int nbTour);
     
     public void afficherFinPartie(String nomGagnant);
     
-	public void passerTour(String nomJoueur, int nbTour,boolean finPartie);
+	public void passerTour(int nbTour,boolean finPartie);
+	
     }

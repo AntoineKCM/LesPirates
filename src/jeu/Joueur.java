@@ -3,7 +3,7 @@ package jeu;
 public class Joueur {
 
     private String nom;
-    private int vie = 2;
+    private int vie = 5;
     private int positionPlateau = 1;
     private Couleur couleurPion;
 
@@ -16,8 +16,8 @@ public class Joueur {
         return vie > 0;
     }
 
-    public void ajouterVie(int val) {
-        vie += val;
+    public void ajouterVie(int valeur) {
+        vie += valeur;
     }
 
     public int getVie() {
@@ -36,7 +36,7 @@ public class Joueur {
         return couleurPion.getTypeCouleur();
     }
 
-    public void setPositionPlateau(int newPositionPlateau) {
-        positionPlateau = newPositionPlateau;
+    public void setPositionPlateau(int nouvellePositionPlateau) {
+        positionPlateau = nouvellePositionPlateau;
     }
 }
